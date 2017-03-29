@@ -7990,7 +7990,7 @@ static Bool dis_branch ( UInt theInstr,
          /* blrl is pretty strange; it's like a return that sets the
             return address of its caller to the insn following this
             one.  Mark it as a return. */
-         dres->jk_StopHere = Ijk_Ret;  /* was flag_LK ? Ijk_Call : Ijk_Ret; */
+         dres->jk_StopHere = flag_LK ? Ijk_Call : Ijk_Ret; /* was Ijk_Ret */
          putGST( PPC_GST_CIA, mkexpr(lr_old) );
          break;
       }
